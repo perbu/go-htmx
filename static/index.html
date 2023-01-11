@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>HTMX Serve</title>
+    <script src="https://unpkg.com/htmx.org@latest"></script>
+</head>
+<h1>HTMX Demo</h1>
+<div>
+    <form id="theForm">
+        <button
+                hx-post="/createForm"
+                hx-trigger="click"
+                hx-target="#theForm"
+                hx-swap="outerHTML"
+        >Create user
+        </button>
+    </form>
+<!-- This is the element that should be update every second: -->
+<div style="color: brown;">Backend status:</div>
+<div hx-get="/memstats" hx-trigger="every 1s">N/A</div>
+<hr>
+<div hx-get="/poem" hx-trigger="every 1s">A short poem about Go</div>
+<hr>
+
+</div>
+
+
+
+
+</html>
